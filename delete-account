@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Suppression de Compte - Job Propre</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style> 
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; } 
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; } 
+        h2 { color: #2980b9; margin-top: 30px; border-left: 5px solid #3498db; padding-left: 15px; } 
+        ul { margin-left: 20px; } 
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 50px; font-size: 0.9em; color: #7f8c8d; border-top: 1px solid #eee; padding-top: 20px; }
+        .important-box { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Suppression de Compte et des Données</h1>
+    <p><strong>Dernière mise à jour : 17 février 2026</strong></p>
+
+    <div class="important-box">
+        <p><strong>Chez Job Propre, vous gardez le contrôle de vos informations personnelles.</strong></p>
+        <p>Vous pouvez à tout moment supprimer votre compte et les données associées directement depuis l’application, dans la section <em>Paramètres → Supprimer mon compte</em>.</p>
+    </div>
+
+    <h2>Données supprimées</h2>
+    <ul>
+        <li>Informations de profil (nom, email, téléphone, CV, lettre de motivation).</li>
+        <li>Données de candidature et échanges avec les recruteurs.</li>
+        <li>Historique de notifications et préférences.</li>
+    </ul>
+
+    <h2>Données conservées temporairement</h2>
+    <p>Certaines données techniques (journaux serveurs, logs de sécurité) peuvent être conservées jusqu’à <strong>24 mois maximum</strong> pour des raisons légales et de sécurité, puis sont définitivement supprimées ou anonymisées.</p>
+
+    <h2>Demande d’assistance</h2>
+    <p>Si vous rencontrez des difficultés pour supprimer votre compte ou vos données, vous pouvez nous contacter :</p>
+    <ul>
+        <li>Email : <strong>supportjobpropre@gmail.com</strong></li>
+        <li>Téléphone : <strong>+237 620 387 206</strong></li>
+    </ul>
+
+    <div class="footer">
+        <p>&copy; 2026 Job Propre. Page dédiée à la suppression de compte et des données.</p>
+    </div>
+</div>
+</body>
+</html>

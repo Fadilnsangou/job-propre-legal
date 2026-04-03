@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement JobPropre</title>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f7f6; }
+        .card { background: white; padding: 30px; border-radius: 15px; shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-block; }
+        .btn-momo { background: #ffcc00; border: none; padding: 15px 30px; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 18px; }
+        .loader { display: none; color: blue; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Finaliser mon CV Premium</h2>
+        <p>Montant à payer : <b>500 FCFA</b></p>
+        
+        <div id="payment-section">
+            <button class="btn-momo" onclick="demarrerPaiement()">Payer par MTN / Orange Money</button>
+        </div>
+
+        <div id="status-section" style="display:none;">
+            <p id="message">Traitement du paiement en cours...</p>
+            <div class="loader" id="loader">Veuillez patienter...</div>
+        </div>
+    </div>
+
+    <script>
+        // 1. TA CONFIGURATION FIREBASE (À copier depuis ta console Firebase)
+        const firebaseConfig = {
+            apiKey: "TON_API_KEY",
+            authDomain: "ton-projet.firebaseapp.com",
+            projectId: "ton-projet-id",
+            storageBucket: "ton-projet.appspot.com",
+            messagingSenderId: "ton-id",
+            appId: "ton-app-id"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // 2. RÉCUPÉRER L'UID DEPUIS L'URL (?uid=XYZ)
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('uid');
+
+        async function demarrerPaiement() {
+            if (!userId) {
+                alert("Erreur : Utilisateur non identifié.");
+                return;
+            }
+
+            // Interface
+            document.getElementById('payment-section').style.display = 'none';
+            document.getElementById('status-section').style.display = 'block';
+            document.getElementById('loader').style.display = 'block';
+
+            /* 3. ICI, TU APPELLES L'AGRÉGATEUR (Exemple avec Campay ou MeSomb)
+               Pour l'instant, on simule un succès après 3 secondes.
+            */
+            
+            setTimeout(async () => {
+                try {
+                    // 4. MISE À JOUR DE FIRESTORE
+                    await db.collection("users").doc(userId).update({
+                        hasPaid: true,
+                        lastPaymentDate: firebase.firestore.FieldValue.serverTimestamp(),
+                        paymentType: "CV_Premium"
+                    });
+
+                    document.getElementById('message').innerHTML = "✅ Paiement Réussi !<br>Vous pouvez retourner dans l'application JobPropre.";
+                    document.getElementById('loader').style.display = 'none';
+                    
+                } catch (error) {
+                    console.error("Erreur Firestore:", error);
+                    alert("Erreur lors de la validation. Contactez le support.");
+                }
+            }, 3000); 
+        }
+    </script>
+</body>
+</html>

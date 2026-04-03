@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Paiement JobPropre</title>
+</head>
+<body>
+  <h2>Payer mon CV Premium</h2>
+  <p>Montant : 500 FCFA</p>
+  <button onclick="demarrerPaiement()">Payer par MTN / Orange Money</button>
+
+  <script>
+    async function demarrerPaiement() {
+      alert("Simulation du paiement Mobile Money...");
+      // Ici tu appelles ton API (Campay, MeSomb, etc.)
+    }
+  </script>
+</body>
+</html>
